@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TestTest.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="ru">
+<head runat="server" >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Электронный помощник учителя</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/bootstrap.css" rel="stylesheet">
+    
+
+</head>
+<body >
+    <form runat="server">
+        <asp:ScriptManager runat="server" EnablePageMethods="true">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+       <div class="navbar navbar-expand-md navbar-dark" style="
+           background-color: #57A5B8;
+           margin-top: -50px;
+           height: 60px;" ">
+           
+            <div class="container" ><div style="width:50px;height:50px; float:left"><img src="../pi.png" style="width:50px;height:50px;" /> </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="menu-icon-bar"></span>
+				            <span class="menu-icon-bar"></span>
+				            <span class="menu-icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="font-family: cursive;" runat="server" href="~/About">Электронный помощник учителя</a>
+                    
+                </div>
+                <div class="collapse navbar-collapse">
+                   <ul class="navbar-nav ml-auto" style="font-family: cursive;">
+                        <li><a id="MenuMainPage" class="nav-item nav-link" runat="server" href="~/About">Главная</a></li>
+                        <li><a id="MenuFavouritesPage" class="nav-item nav-link" runat="server" href="~/Favorites">Избранное</a></li>
+                        <li><a id="MenuRegisterPage" class="nav-item nav-link" runat="server" href="~/Account/Register">Управление</a></li>
+                    </ul>
+
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                      <AnonymousTemplate>
+                            <ul class="navbar-nav ml-auto">
+                              
+                                <li><a class="nav-item nav-link" runat="server" href="~/Account/Login">Вход</a></li>
+                                
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right" style="padding-left:25px;padding-right:-15px;">
+                                <li style="margin-left: 20px;
+                                           box-shadow: 0 0 0 1px #64D5DD;
+                                           resize: none;
+                                           border-radius: 10px;
+                                           height: 55px;
+                                           border: none;
+                                           outline: none;">
+                                    <a runat="server" href="~/Account/Manage" style="color: aliceblue;
+                                                                                     float: left;
+                                                                                     width: 30px;
+                                                                                     font-size: 11px;
+                                                                                     padding-top: 11px;"
+                                    class="nav-item nav-link" title="Manage your account"><%: Context.User.Identity.GetUserName() + (Context.User.IsInRole("Admin") ? " (Администратор)" : " (Учитель)") %></a>
+                                
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" style="float: right;
+                                                                                                   margin-left: 100px;
+                                                                                                   margin-top: 20px;" 
+                                        class="nav-item nav-link"  LogoutText="Выход" LogoutPageUrl="~/Account/Login" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content" >
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer  width:100%" >
+                <p> <%: DateTime.Now.Year %> - Выполнила Усманова Л.М.</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("center").each(function () {
+            if ($(this).html() == '<a href="http://somee.com">Web hosting by Somee.com</a>') {
+                $(this).next().remove();
+                $(this).next().next().remove();
+                $(this).next().next().next().remove();
+                $(this).remove();
+
+                return false;
+            }
+        });
+    });
+</script>
