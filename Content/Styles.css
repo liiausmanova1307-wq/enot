@@ -1,0 +1,136 @@
+﻿.divs {
+    margin-top: 1%;
+    width: 100%;
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.findDiv {
+    width: auto;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: right;
+}
+.divInsert {
+    width: auto;
+    max-width: 400px;
+    height: auto;
+    padding: 20px;
+    border: 1px solid grey;
+    margin-bottom: 10px;
+    margin-top: 100px;
+    border-radius: 0 0 20px 20px;
+    
+    
+}
+
+.form-control {
+    margin: auto;
+    display: inline-block;
+    min-width: 300px;
+    height: 80%;
+    width: 70%;
+}
+
+
+.table{
+    margin:auto;
+    width:121%;
+    position:relative;
+    text-align:center;
+    top: 0px;
+    /*left: 31px;*/
+    height: 103px;
+}
+.rows {
+    font-family: Arial;
+    font-size: 14px;
+    min-height: 25px;
+    text-align: left;
+    border: none 0px transparent;
+    border-bottom: 1px solid;
+}
+
+.table-row-div-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.buttons {
+    text-align: right;
+    max-width:20px;
+}
+.test{
+
+}
+.testRow {
+  background-color:red;
+}
+.simple {
+    background-color: red;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 500px !important;
+    }
+
+}
+
+.my-btn-sort-class {
+    float:right;
+}
+.test_lbl {
+    width: 106%;
+    height: auto;
+    min-height: 100px;
+    
+    border-radius: 15px;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 9px;
+    font-family: cursive;
+    font-style: italic;
+}
+.test_lbl2 {
+    outline: none;
+    resize: none;
+    border: none;
+    margin-right: 5px;
+    width: 100%;
+    height: 285px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    border-radius: 15px;
+}
+.cyrs {
+    font-family: cursive;
+}
+    .lbl {
+        color: #F68181;
+      
+    }
+
+.fon {
+    box-shadow: 0px 0px 15px #64d5dd2e;
+}
+
+.img {
+    border-radius: 20px 0px 0px 20px;
+}
+.find {
+    float: right;
+    height: 35px;
+    border-radius: 0px 20px 20px 0px;
+}
+.check {
+    width: 280px;
+    margin-top: 5px;
+}
+
